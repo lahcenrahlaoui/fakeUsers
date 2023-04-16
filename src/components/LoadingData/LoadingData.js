@@ -4,6 +4,7 @@ const LoadingData = ({ loop, className }) => {
     const palceHolders = [];
 
     const classes = classNames(
+        "h-10 p-2",
         "animate-shimmer",
         "absolute",
         "inset-0",
