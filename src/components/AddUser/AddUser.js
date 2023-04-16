@@ -1,24 +1,20 @@
+// import { useDispatch } from "react-redux";
 
-import { useDispatch } from "react-redux";
-import { addUser } from "../../store";
+// import Button from "../Button/Button";
 
-import Button from "../Button/Button";
+// const AddUser = () => {
+//     const dispatch = useDispatch();
 
-const AddUser = () => {
-    const dispatch = useDispatch();
+   
 
-    const handleClick = () => {
-        dispatch(addUser());
-    };
+//     return (
+//         <div className="flex justify-between  p-4">
+//             <div><b>USERS</b></div>
+//             <Button primary onClick={handelAddUser}>
+//                 Add user
+//             </Button>
+//         </div>
+//     );
+// };
 
-    return (
-        <div>
-            users
-            <Button primary onClick={handleClick}>
-                Add user
-            </Button>
-        </div>
-    );
-};
-
-export default AddUser;
+// export default AddUser;
