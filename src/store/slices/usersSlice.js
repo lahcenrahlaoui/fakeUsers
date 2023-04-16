@@ -25,6 +25,7 @@ const usersSlice = createSlice({
             state.isLoading = false;
             state.error = action.error;
         });
+
         // adding users 
         builder.addCase(addUser.pending, (state, action) => {
             state.creatingUser = true;
@@ -37,6 +38,7 @@ const usersSlice = createSlice({
             state.creatingUser = false;
             state.error = action.error;
         });
+        
         // delete users 
         builder.addCase(deleteUser.pending, (state, action) => {
             // state.isLoading = true;

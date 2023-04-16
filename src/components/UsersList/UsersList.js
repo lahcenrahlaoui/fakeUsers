@@ -6,16 +6,15 @@ import { useThunk } from "../../hooks/useThunk";
 
 import LoadingData from "../LoadingData/LoadingData";
 import Button from "../Button/Button";
+import UserItem from "../UserItem/UserItem"
 
-import { GoTriangleDown, GoX } from "react-icons/go";
 
 const UsersList = () => {
     const [doFetchUsers, isLoadingUsers, loadingUsersError] =
         useThunk(fetchUsers);
     const [doCreatingUser, isCreatingUser, creatingUserError] =
         useThunk(addUser);
-    const [doDeletingUser, isDeletingUser, deletingUserError] =
-        useThunk(deleteUser);
+
 
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.users);
@@ -27,10 +26,7 @@ const UsersList = () => {
     const handelAddUser = () => {
         doCreatingUser();
     };
-    const handleDeleteUser = (id) => {
-        doDeletingUser(id);
-    };
-
+  
     let content ; 
     if (isLoadingUsers) {
         content = <LoadingData loop={6} className="h-10 w-full" />;
@@ -39,24 +35,7 @@ const UsersList = () => {
     }else{
         content = data.map((user) => {
             return (
-                <div key={user.id} className="mb-2 border rounded">
-                    <div className="flex p-2 justify-between items-center cursor-pointer">
-                        <div className="flex">
-                            <div className="flex items-center justify-center mr-4">
-                                {!isDeletingUser ? (
-                                    <GoX
-                                        className="text-red-400 hover:text-red-700"
-                                        onClick={() => handleDeleteUser(user.id)}
-                                    />
-                                ) : (
-                                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
-                                )}
-                            </div>
-                            {user.name}
-                        </div>
-                        <GoTriangleDown />
-                    </div>
-                </div>
+                <UserItem user={user} />
             );
         });
     }

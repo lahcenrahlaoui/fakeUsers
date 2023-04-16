@@ -6,9 +6,9 @@ const useThunk = (thunk) => {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
     const runThunk = useCallback(
-        (id) => {
+        (args) => {
             setIsLoading(true);
-            dispatch(thunk(id))
+            dispatch(thunk(args))
                 .unwrap()
                 .catch((error) => setError(error))
                 .finally(() => setIsLoading(false));
