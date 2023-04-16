@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,24 +9,34 @@ import LoadingData from "../LoadingData/LoadingData";
 import { GoTriangleDown, GoX } from "react-icons/go";
 import Button from "../Button/Button";
 
+const useThunk = (thunk) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const runThunk = useCallback((id) => {
+        setIsLoading(true);
+        dispatch(thunk(id))
+            .unwrap()
+            .catch((error) => setError(error))
+            .finally(() => setIsLoading(false));
+    }, [thunk, dispatch]);
+
+    return [runThunk, isLoading, error];
+};
+
 const UsersList = () => {
-    const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-    const [loadingUsersError, setLoadingUsersError] = useState(null);
-    const [isCreatingUser, setIsCreatingUser] = useState(false);
-    const [creatingUserError, setCreatingUserError] = useState(null);
+    const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+        useThunk(fetchUsers);
+    const [doCreatingUser, isCreatingUser, creatingUserError] =
+        useThunk(addUser);
+    const [doDeletingUser, isDeletingUser, deletingUserError] =
+        useThunk(deleteUser);
+
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.users);
+
     useEffect(() => {
-        setIsLoadingUsers(true);
-        console.log(isCreatingUser);
-        dispatch(fetchUsers())
-            .unwrap()
-            .catch((error) => {
-                setLoadingUsersError(error);
-            })
-            .finally(() => {
-                setIsLoadingUsers(false);
-            });
+        doFetchUsers();
     }, [dispatch]);
 
     if (isLoadingUsers) {
@@ -45,11 +55,10 @@ const UsersList = () => {
         );
     }
     const handelAddUser = () => {
-        setIsCreatingUser(true);
-        dispatch(addUser()).then(() => setIsCreatingUser(false));
+        doCreatingUser();
     };
     const handleDeleteUser = (id) => {
-        dispatch(deleteUser(id));
+        doDeletingUser(id);
     };
 
     const renderedUsers = data.map((user) => {
@@ -58,10 +67,15 @@ const UsersList = () => {
                 <div className="flex p-2 justify-between items-center cursor-pointer">
                     <div className="flex">
                         <div className="flex items-center justify-center mr-4">
-                            <GoX
-                                className="text-red-400 hover:text-red-700"
-                                onClick={() => handleDeleteUser(user.id)}
-                            />
+                            {!isDeletingUser ? (
+                                <GoX
+                                    className="text-red-400 hover:text-red-700"
+                                    onClick={() => handleDeleteUser(user.id)}
+                                />
+                            ) : (
+                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
+                     
+                            )}
                         </div>
                         {user.name}
                     </div>
@@ -84,11 +98,12 @@ const UsersList = () => {
                         onClick={handelAddUser}
                     >
                         {!isCreatingUser ? (
-                            <div>add user</div>
-                            ) : (
-                            <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
+                            <div>Add user</div>
+                        ) : (
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
                         )}
                     </Button>
+                    {creatingUserError && "error creating "}
                 </div>
                 {renderedUsers}
             </div>

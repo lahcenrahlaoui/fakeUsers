@@ -1,28 +1,16 @@
 {
   "users": [
     {
-      "name": "Celia Ortiz",
-      "id": 55
+      "name": "Luis Schaefer",
+      "id": 7
     },
     {
-      "name": "Ms. Bradley Wehner",
-      "id": 56
+      "name": "Andre Schaefer",
+      "id": 9
     },
     {
-      "name": "Kyle Pouros",
-      "id": 57
-    },
-    {
-      "name": "Karla Goyette",
-      "id": 58
-    },
-    {
-      "name": "Amos Russel",
-      "id": 59
-    },
-    {
-      "name": "Dominic Jakubowski",
-      "id": 60
+      "name": "Taylor Turner",
+      "id": 10
     }
   ],
   "albums": [],
