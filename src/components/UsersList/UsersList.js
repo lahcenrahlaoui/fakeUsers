@@ -1,28 +1,13 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect } from "react";
+import { fetchUsers, addUser, deleteUser } from "../../store";
 
 import { useDispatch, useSelector } from "react-redux";
-
-import { deleteUser, fetchUsers, addUser } from "../../store";
+import { useThunk } from "../../hooks/useThunk";
 
 import LoadingData from "../LoadingData/LoadingData";
-
-import { GoTriangleDown, GoX } from "react-icons/go";
 import Button from "../Button/Button";
 
-const useThunk = (thunk) => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const dispatch = useDispatch();
-    const runThunk = useCallback((id) => {
-        setIsLoading(true);
-        dispatch(thunk(id))
-            .unwrap()
-            .catch((error) => setError(error))
-            .finally(() => setIsLoading(false));
-    }, [thunk, dispatch]);
-
-    return [runThunk, isLoading, error];
-};
+import { GoTriangleDown, GoX } from "react-icons/go";
 
 const UsersList = () => {
     const [doFetchUsers, isLoadingUsers, loadingUsersError] =
@@ -74,7 +59,6 @@ const UsersList = () => {
                                 />
                             ) : (
                                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
-                     
                             )}
                         </div>
                         {user.name}
@@ -95,15 +79,16 @@ const UsersList = () => {
                     <Button
                         className="flex justify-center items-center w-24 h-9"
                         primary
+                        loading={isCreatingUser}
                         onClick={handelAddUser}
                     >
-                        {!isCreatingUser ? (
-                            <div>Add user</div>
-                        ) : (
-                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
-                        )}
+                       Add User
+                       
+                            {/* <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div> */}
+                       
                     </Button>
                     {creatingUserError && "error creating "}
+                    {deletingUserError && "error delete "}
                 </div>
                 {renderedUsers}
             </div>

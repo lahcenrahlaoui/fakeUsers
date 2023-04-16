@@ -1,17 +1,22 @@
-
-
-
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 
-const useThunk = ({ doFetch, state, setState }) => {
+const useThunk = (thunk) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const dispatch = useDispatch();
-    const [a , setA] = useState()
-    const x = dispatch(doFetch())
-        .unwrap()
-        .catch((error) => setState(error))
-        .finally(() => setState(false));
-    return [x, state, setState];
+    const runThunk = useCallback(
+        (id) => {
+            setIsLoading(true);
+            dispatch(thunk(id))
+                .unwrap()
+                .catch((error) => setError(error))
+                .finally(() => setIsLoading(false));
+        },
+        [thunk, dispatch]
+    );
+
+    return [runThunk, isLoading, error];
 };
 
-export default useThunk;
+export { useThunk };
