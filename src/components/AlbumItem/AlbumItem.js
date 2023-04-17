@@ -7,12 +7,14 @@ import { GoX, GoSync } from "react-icons/go";
 
 import { createPhoto, fetchPhotos } from "../../store";
 import { useSelector } from "react-redux";
+import Slider from "../Slider/Slider";
 
 const AlbumItem = ({ user, album }) => {
     const [doFetchPhotos, isFetchingPhotos, fetchingPhotoError] =
         useThunk(fetchPhotos);
 
-    const [doCreatingPhoto, isCreatingPhoto, deletingPhotoError] = useThunk(createPhoto);
+    const [doCreatingPhoto, isCreatingPhoto, deletingPhotoError] =
+        useThunk(createPhoto);
 
     const [doDeletingAlbum, isDeletingAlbum, deletingAlbumError] = useThunk();
 
@@ -48,13 +50,18 @@ const AlbumItem = ({ user, album }) => {
         return (
             <React.Fragment key={photo.id}>
                 {album.id === photo.albumId && (
-                    <img src={photo.imgUrl} alt={photo.imgUrl} width="50" height="50" />
+                    <img
+                        className="m-1"
+                        src={photo.imgUrl}
+                        alt={photo.imgUrl}
+                        width="50"
+                        height="50"
+                    />
                 )}
             </React.Fragment>
         );
     });
-    // const pics = "/////////////"
-    const handleAddPhoto = () => {};
+
     return (
         <ExpandPanel header={header} onClick={doFetchPhotos} data={album}>
             <div className="flex justify-between">
@@ -63,8 +70,12 @@ const AlbumItem = ({ user, album }) => {
                     +Photo
                 </Button>
             </div>
-
-            {pics}
+            <div className="flex bg-red-100 overflow-hidden p-1">
+                
+                <Slider list={data} album={album} />
+               {/* {pics} */}
+                
+                </div>
         </ExpandPanel>
     );
 };

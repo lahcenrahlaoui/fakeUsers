@@ -15,6 +15,10 @@
     {
       "name": "Rachel Douglas",
       "id": 100003
+    },
+    {
+      "name": "Daniel Will",
+      "id": 100004
     }
   ],
   "albums": [
@@ -71,6 +75,11 @@
       "albumId": 1000,
       "imgUrl": "https://loremflickr.com/640/480/nature",
       "id": 5
+    },
+    {
+      "albumId": 1000,
+      "imgUrl": "https://loremflickr.com/640/480/fashion",
+      "id": 6
     }
   ]
 }

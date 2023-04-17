@@ -4,6 +4,8 @@ import { fetchUsers, addUser, deleteUser } from "../../store";
 import { useSelector } from "react-redux";
 import { useThunk } from "../../hooks/useThunk";
 
+import Slider from "../Slider/Slider";
+
 import LoadingData from "../LoadingData/LoadingData";
 import Button from "../Button/Button";
 import UserItem from "../UserItem/UserItem";
@@ -47,6 +49,7 @@ const UsersList = () => {
     }
     return (
         <div className="flex w-full  justify-center">
+             
             <div className="w-1/2">
                 <div className="flex justify-between  p-4">
                     <div>
