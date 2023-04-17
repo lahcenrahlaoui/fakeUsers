@@ -1,26 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { GoX, GoSync } from "react-icons/go";
 
 import { deleteUser } from "../../store";
 
-import { createAlbum } from "../../store";
+import { createAlbum, fetchAlbums } from "../../store";
 import { useThunk } from "../../hooks/useThunk";
 
 import ExpandPanel from "../ExpandPanel/ExpandPanel";
 import Button from "../Button/Button";
+import { useSelector } from "react-redux";
 
 function UserItem({ user }) {
     const [doDeletingUser, isDeletingUser, deletingUserError] =
         useThunk(deleteUser);
 
-    const [doCreatingAlbum, isCreatingAlbum, deletingAlbum] =
+    const [doCreatingAlbum, isCreatingAlbum, deletingAlbumError] =
         useThunk(createAlbum);
 
     const handleDeleteUser = () => {
         doDeletingUser(user);
     };
 
+    const [doFetchAlbums, isFetchingAlbums, fetchingAlbumError] =
+        useThunk(fetchAlbums);
+
+    const { data } = useSelector((state) => {
+        return state.albums;
+    });
+
+    const albums = data.map((album) => {
+        
+        return (
+            <div key={album.id}>
+                {(user.id === album.userId) && <div>{album.id}</div>}
+            </div>
+        );
+    });
+
+    console.log(data)
+   
     const content = (
         <>
             <div className="flex items-center justify-center mr-4">
@@ -42,13 +61,14 @@ function UserItem({ user }) {
     };
     return (
         <div className="mb-2">
-            <ExpandPanel header={content}>
+            <ExpandPanel header={content} onClick={doFetchAlbums} user={user}>
                 <div className="flex justify-between">
                     {`Aalbums by ${user.name.split(" ")[0]}`}
                     <Button danger onClick={handleAddAlbum}>
                         +Album
                     </Button>
                 </div>
+                <div>{albums}</div>
             </ExpandPanel>
         </div>
     );

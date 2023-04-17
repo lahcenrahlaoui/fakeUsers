@@ -14,6 +14,7 @@ const store = configureStore({
 export * from './thunks/fetchUsers'
 export * from './thunks/addUser'
 export * from './thunks/deleteUser'
+export * from './thunks/fetchAlbums'
 export * from './thunks/createAlbum'
 
 export { store };

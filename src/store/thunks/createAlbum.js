@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
-const createAlbum = createAsyncThunk("albums/fetch", async (userId) => {
+const createAlbum = createAsyncThunk("albums/create", async (userId) => {
     const response = await axios.post('http://localhost:3001/albums', {
         userId: userId,
     });

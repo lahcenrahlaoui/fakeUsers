@@ -14,12 +14,12 @@ const UsersList = () => {
     const [doCreatingUser, isCreatingUser, creatingUserError] =
         useThunk(addUser);
 
-    const dispatch = useDispatch();
+    
     const { data } = useSelector((state) => state.users);
 
     useEffect(() => {
         doFetchUsers();
-    }, [dispatch]);
+    }, []);
 
     const handelAddUser = () => {
         doCreatingUser();
