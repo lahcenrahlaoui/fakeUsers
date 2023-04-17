@@ -1,14 +1,17 @@
 import { GoTriangleDown } from "react-icons/go";
-const ExpandPanel = ({ header, children }) => {
+const ExpandPanel = ({ header, children , onClick }) => {
+    const handleClick = () =>{
+        onClick(s =>!s)
+    }
     return (
         <div>
             <div className=" border rounded-t-md">
                 <div className="flex p-2 justify-between items-center cursor-pointer">
                     <div className="flex">{header}</div>
-                    <GoTriangleDown />
+                    <GoTriangleDown onClick={handleClick}/>
                 </div>
             </div>
-            <div className="p-2 border"> {children}</div>
+            {children}
         </div>
     );
 };

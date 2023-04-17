@@ -1,14 +1,19 @@
-import { deleteUser } from "../../store";
-import { useThunk } from "../../hooks/useThunk";
-
-import UserHeader from "../UserHeader/UserHeader";
-import ExpandPanel from "../ExpandPanel/ExpandPanel";
+import { useState } from "react";
 
 import { GoX } from "react-icons/go";
+
+import { deleteUser } from "../../store";
+
+import { useThunk } from "../../hooks/useThunk";
+
+import ExpandPanel from "../ExpandPanel/ExpandPanel";
 
 function UserItem({ user }) {
     const [doDeletingUser, isDeletingUser, deletingUserError] =
         useThunk(deleteUser);
+
+    const [togglePanel, setTogglePanel] = useState(false);
+
     const handleDeleteUser = () => {
         doDeletingUser(user);
     };
@@ -27,10 +32,9 @@ function UserItem({ user }) {
     );
     return (
         <div className="mb-2">
-            <ExpandPanel header={content}>
-                conmterrnt 
+            <ExpandPanel header={content} onClick={setTogglePanel}>
+                {togglePanel && <div className="p-2 border">conmterrnt</div>}
             </ExpandPanel>
-            
         </div>
     );
 }
