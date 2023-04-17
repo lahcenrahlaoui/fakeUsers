@@ -2,77 +2,36 @@
   "users": [
     {
       "name": "Theresa Kling",
-      "id": 1
+      "id": 100000
     },
     {
       "name": "Essie Bergnaum",
-      "id": 2
+      "id": 100001
     },
     {
       "name": "Donna Roberts",
-      "id": 3
+      "id": 100002
+    },
+    {
+      "name": "Rachel Douglas",
+      "id": 100003
     }
   ],
   "albums": [
     {
-      "userId": 1,
+      "userId": 100000,
+      "albumName": "Funk",
       "id": 1
     },
     {
-      "userId": 2,
+      "userId": 100001,
+      "albumName": "Hip Hop",
       "id": 2
     },
     {
-      "userId": 1,
+      "userId": 100002,
+      "albumName": "Metal",
       "id": 3
-    },
-    {
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "id": 8
-    },
-    {
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "id": 15
     }
   ],
   "photos": []

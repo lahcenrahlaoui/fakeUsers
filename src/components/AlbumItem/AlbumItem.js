@@ -1,12 +1,16 @@
-import { GoChevronDown } from "react-icons/go";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
-const AlbumItem = () => {
+const AlbumItem = ({ user, album }) => {
     return (
-        <div className="border p-1 m-1 flex justify-between w-40 bg-red-400">
-            <div> item number </div>
-            <div className="flex justify-center items-center">
-                <GoChevronDown />
-            </div>
+        <div key={album.id}>
+            {user.id === album.userId && (
+                <div className="border p-1 pr-3 pl-3 flex justify-between mb-2">
+                    <div>{album.albumName}</div>
+                    <div className="flex justify-center items-center">
+                        <GoChevronLeft />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
