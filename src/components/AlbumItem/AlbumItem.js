@@ -5,14 +5,14 @@ import Button from "../Button/Button";
 import { useThunk } from "../../hooks/useThunk";
 import { GoX, GoSync } from "react-icons/go";
 
-import { fetchPhotos } from "../../store";
+import { createPhoto, fetchPhotos } from "../../store";
 import { useSelector } from "react-redux";
 
 const AlbumItem = ({ user, album }) => {
     const [doFetchPhotos, isFetchingPhotos, fetchingPhotoError] =
         useThunk(fetchPhotos);
 
-    const [doCreatingPhoto, isCreatingPhoto, deletingPhotoError] = useThunk();
+    const [doCreatingPhoto, isCreatingPhoto, deletingPhotoError] = useThunk(createPhoto);
 
     const [doDeletingAlbum, isDeletingAlbum, deletingAlbumError] = useThunk();
 
@@ -59,7 +59,7 @@ const AlbumItem = ({ user, album }) => {
         <ExpandPanel header={header} onClick={doFetchPhotos} data={album}>
             <div className="flex justify-between">
                 {`Photos in ${album.albumName} `}
-                <Button danger onClick={handleAddPhoto}>
+                <Button danger onClick={handleCreatePhoto}>
                     +Photo
                 </Button>
             </div>

@@ -1,12 +1,14 @@
-import  { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { faker } from "@faker-js/faker";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
+const createPhoto = createAsyncThunk("photos/create", async (album) => {
+    const response = await axios.post("http://localhost:3001/photos", {
+        albumId: album.id,
+        imgUrl: faker.image.image(),
+    });
 
-const createPhoto = createAsyncThunk('photos/create' , async ()=>{
-    const response = await axios.post('http://localhost:3001/photos')
+    return response.data;
+});
 
-    return response.data
-})
-
-
-export {createPhoto}
+export { createPhoto };

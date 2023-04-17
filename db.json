@@ -49,13 +49,28 @@
       "albumId": 1000,
       "albumName": "nomusic",
       "id": 1,
-      "imgUrl":"https://picsum.photos/200"
-    } ,
+      "imgUrl": "https://picsum.photos/200"
+    },
     {
       "albumId": 1004,
       "albumName": "nomusic",
       "id": 2,
-      "imgUrl":"https://picsum.photos/200"
+      "imgUrl": "https://picsum.photos/200"
+    },
+    {
+      "albumId": 1000,
+      "imgUrl": "https://loremflickr.com/640/480/animals",
+      "id": 3
+    },
+    {
+      "albumId": 1000,
+      "imgUrl": "https://loremflickr.com/640/480/nature",
+      "id": 4
+    },
+    {
+      "albumId": 1000,
+      "imgUrl": "https://loremflickr.com/640/480/nature",
+      "id": 5
     }
   ]
 }
