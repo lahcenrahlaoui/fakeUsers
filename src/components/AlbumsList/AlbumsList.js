@@ -1,5 +1,5 @@
 import AlbumItem from "../AlbumItem/AlbumItem";
-const AlbumList = () => {
+const AlbumsList = () => {
     return (
         <div className="border p-2 rounded-b-md">
             <div className="flex justify-center items-center"> albums by {"id"} </div>
@@ -13,4 +13,4 @@ const AlbumList = () => {
     );
 };
 
-export default AlbumList;
+export default AlbumsList;

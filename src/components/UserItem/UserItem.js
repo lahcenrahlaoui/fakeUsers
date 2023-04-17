@@ -2,7 +2,10 @@ import { deleteUser } from "../../store";
 import { useThunk } from "../../hooks/useThunk";
 
 import UserHeader from "../UserHeader/UserHeader";
-import AlbumList from "../AlbumsList/AlbumList";
+import ExpandPanel from "../ExpandPanel/ExpandPanel";
+
+import { GoX } from "react-icons/go";
+
 function UserItem({ user }) {
     const [doDeletingUser, isDeletingUser, deletingUserError] =
         useThunk(deleteUser);
@@ -10,15 +13,24 @@ function UserItem({ user }) {
         doDeletingUser(user);
     };
 
+    const content = (
+        <>
+            <div className="flex items-center justify-center mr-4">
+                <GoX
+                    className="text-red-400 hover:text-red-700"
+                    onClick={handleDeleteUser}
+                />
+            </div>
+            {deletingUserError && "error"}
+            {user.name}
+        </>
+    );
     return (
         <div className="mb-2">
-            <UserHeader
-                user={user}
-                isDeletingUser={isDeletingUser}
-                deletingUserError={deletingUserError}
-                handleDeleteUser={handleDeleteUser}
-            />
-            <AlbumList />
+            <ExpandPanel header={content}>
+                conmterrnt 
+            </ExpandPanel>
+            
         </div>
     );
 }
