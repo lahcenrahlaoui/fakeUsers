@@ -10,18 +10,18 @@ import Button from "../Button/Button";
 import AlbumsList from "../AlbumsList/AlbumsList";
 
 function UserItem({ user }) {
-    const [doDeletingUser, isDeletingUser, deletingUserError] =
-        useThunk(deleteUser);
+    const [doFetchAlbums, isFetchingAlbums, fetchingAlbumError] =
+        useThunk(fetchAlbums);
 
     const [doCreatingAlbum, isCreatingAlbum, deletingAlbumError] =
         useThunk(createAlbum);
 
+    const [doDeletingUser, isDeletingUser, deletingUserError] =
+        useThunk(deleteUser);
+
     const handleDeleteUser = () => {
         doDeletingUser(user);
     };
-
-    const [doFetchAlbums, isFetchingAlbums, fetchingAlbumError] =
-        useThunk(fetchAlbums);
 
     const content = (
         <>
@@ -44,7 +44,7 @@ function UserItem({ user }) {
     };
     return (
         <div className="mb-2">
-            <ExpandPanel header={content} onClick={doFetchAlbums} user={user}>
+            <ExpandPanel header={content} onClick={doFetchAlbums} data={user}>
                 <div className="flex justify-between">
                     {`Aalbums by ${user.name.split(" ")[0]}`}
                     <Button danger onClick={handleAddAlbum}>
@@ -52,7 +52,7 @@ function UserItem({ user }) {
                     </Button>
                 </div>
 
-                <AlbumsList user={user}/>
+                <AlbumsList user={user} />
             </ExpandPanel>
         </div>
     );

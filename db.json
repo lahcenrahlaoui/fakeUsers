@@ -37,7 +37,25 @@
       "userId": 100003,
       "albumName": "nomusic",
       "id": 1003
+    },
+    {
+      "userId": 100000,
+      "albumName": "Rap",
+      "id": 1004
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 1000,
+      "albumName": "nomusic",
+      "id": 1,
+      "imgUrl":"https://picsum.photos/200"
+    } ,
+    {
+      "albumId": 1004,
+      "albumName": "nomusic",
+      "id": 2,
+      "imgUrl":"https://picsum.photos/200"
+    }
+  ]
 }

@@ -1,11 +1,11 @@
 import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
 import { useState } from "react";
-const ExpandPanel = ({ header, children, onClick, user }) => {
+const ExpandPanel = ({ header, children, onClick, data }) => {
     const [togglePanel, setTogglePanel] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const handleClick = () => {
         if(!expanded){
-            onClick(user)
+            onClick(data)
             setExpanded(true);
         }
         setTogglePanel((state) => !state);

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fetchUsers, addUser, deleteUser } from "../../store";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useThunk } from "../../hooks/useThunk";
 
 import LoadingData from "../LoadingData/LoadingData";
@@ -14,7 +14,6 @@ const UsersList = () => {
     const [doCreatingUser, isCreatingUser, creatingUserError] =
         useThunk(addUser);
 
-    
     const { data } = useSelector((state) => state.users);
 
     useEffect(() => {
@@ -36,6 +35,16 @@ const UsersList = () => {
         });
     }
 
+    if (creatingUserError) {
+        content = (
+            <div>
+                <div className="fixed inset-0  opacity-25 "></div>
+                <div className="fixed top-44 bottom-44 left-10 right-10 bold bg-red-100 p-2 text-red-500 flex justify-center items-center">
+                    <div>{creatingUserError.message}</div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className="flex w-full  justify-center">
             <div className="w-1/2">
