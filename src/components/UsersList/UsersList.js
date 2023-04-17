@@ -50,7 +50,7 @@ const UsersList = () => {
     return (
         <div className="flex w-full  justify-center">
              
-            <div className="w-1/2">
+            <div className="w-4/5">
                 <div className="flex justify-between  p-4">
                     <div>
                         <b>USERS</b>

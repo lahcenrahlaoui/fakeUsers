@@ -27,7 +27,6 @@ const AlbumItem = ({ user, album }) => {
     };
 
     const { data } = useSelector((state) => {
-        console.log(state.photos);
         return state.photos;
     });
 
@@ -46,21 +45,21 @@ const AlbumItem = ({ user, album }) => {
             </div>
         </>
     );
-    const pics = data.map((photo) => {
-        return (
-            <React.Fragment key={photo.id}>
-                {album.id === photo.albumId && (
-                    <img
-                        className="m-1"
-                        src={photo.imgUrl}
-                        alt={photo.imgUrl}
-                        width="50"
-                        height="50"
-                    />
-                )}
-            </React.Fragment>
-        );
-    });
+    // const pics = data.map((photo) => {
+    //     return (
+    //         <React.Fragment key={photo.id}>
+    //             {album.id === photo.albumId && (
+    //                 <img
+    //                     className="m-1"
+    //                     src={photo.imgUrl}
+    //                     alt={photo.imgUrl}
+    //                     width="50"
+    //                     height="50"
+    //                 />
+    //             )}
+    //         </React.Fragment>
+    //     );
+    // });
 
     return (
         <ExpandPanel header={header} onClick={doFetchPhotos} data={album}>

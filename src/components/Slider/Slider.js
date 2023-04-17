@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
+import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 
 const Slider = ({ list, album }) => {
     // const list = ["a" , "b" , "c" , "d" , "e" , "f" , "i"]
@@ -13,40 +14,44 @@ const Slider = ({ list, album }) => {
     const handleLeft = () => {
         setIndex((i) => i + 1);
     };
-    console.log("/////////////")
-    console.log(list)
-    console.log("/////////////")
 
     const renderedList = list.map((photo, i) => {
-        console.log();
-        if (i + index < index + 3) {
             const extraIndex = (i + index) % list.length;
+            console.log(extraIndex)
             return (
-                <div key={i + index} className="m-2">
-                    <React.Fragment key={photo.id}>
-                        {album.id === photo.albumId && (
-                            <img
-                                className="m-1"
-                                src={list[extraIndex].imgUrl}
-                                alt={photo.imgUrl}
-                                width="50"
-                                height="50"
-                            />
-                        )}
-                    </React.Fragment>
+
+                <div
+                    key={photo.id}
+                    className="flex justify-between items-center"
+                >
+                    {album.id === photo.albumId && (
+                        <img
+                            className="m-1"
+                            src={list[extraIndex].imgUrl}
+                            alt={photo.imgUrl}
+                            width="250"
+                            height="250"
+                        />
+                    )}
                 </div>
             );
-        }
     });
 
     return (
-        <div className="flex">
-            <Button primary onClick={handleRight}>
-                {" "}
-                {`<`}
-            </Button>
+        <div className="flex justify-between bg-blue-200 w-full">
+            <div className="flex justify-center items-center h-full ">
+                <Button primary onClick={handleRight}>
+                    <GoChevronLeft />
+                </Button>
+            </div>
+            {/* <div className="flex justify-between items-center"> */}
             {renderedList}
-            <Button primary onClick={handleLeft}>{`>`}</Button>
+            {/* </div> */}
+            <div className="flex justify-center items-center h-full ">
+                <Button primary onClick={handleLeft}>
+                    <GoChevronRight />
+                </Button>
+            </div>
         </div>
     );
 };
