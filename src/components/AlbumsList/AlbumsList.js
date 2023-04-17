@@ -1,3 +1,5 @@
+import React from "react";
+
 import AlbumItem from "../AlbumItem/AlbumItem";
 
 import { useSelector } from "react-redux";
@@ -8,7 +10,13 @@ const AlbumsList = ({ user }) => {
     });
 
     const albums = data.map((album) => {
-        return <AlbumItem key={album.id} album={album} user={user} />;
+        return (
+            <React.Fragment key={album.id}>
+                {user.id === album.userId && (
+                    <AlbumItem album={album} user={user} />
+                )}
+            </React.Fragment>
+        );
     });
 
     return <div className="p-2 rounded-b-md">{albums}</div>;

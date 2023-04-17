@@ -21,17 +21,22 @@
     {
       "userId": 100000,
       "albumName": "Funk",
-      "id": 1
+      "id": 1000
     },
     {
       "userId": 100001,
-      "albumName": "Hip Hop",
-      "id": 2
+      "albumName": "classic",
+      "id": 1001
     },
     {
       "userId": 100002,
-      "albumName": "Metal",
-      "id": 3
+      "albumName": "metal",
+      "id": 1002
+    },
+    {
+      "userId": 100003,
+      "albumName": "nomusic",
+      "id": 1003
     }
   ],
   "photos": []
