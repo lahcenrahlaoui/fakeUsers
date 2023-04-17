@@ -1,30 +1,20 @@
 {
   "users": [
     {
-      "name": "Roland Bode",
+      "name": "Leona Fahey",
+      "id": 3
+    },
+    {
+      "name": "Delbert Legros",
       "id": 4
-    },
-    {
-      "name": "Mrs. Eunice Maggio DVM",
-      "id": 5
-    },
-    {
-      "name": "Georgia Romaguera V",
-      "id": 6
-    },
-    {
-      "name": "Claudia Grant",
-      "id": 7
-    },
-    {
-      "name": "Ms. Roosevelt Kerluke Jr.",
-      "id": 8
-    },
-    {
-      "name": "Valerie Wisoky",
-      "id": 9
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "name": "album 1 ",
+      "id": 5,
+      "UserId": 1
+    }
+  ],
   "photos": []
 }

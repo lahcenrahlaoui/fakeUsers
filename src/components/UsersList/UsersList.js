@@ -35,23 +35,11 @@ const UsersList = () => {
     }else{
         content = data.map((user) => {
             return (
-                <UserItem user={user} />
+                <UserItem key={user.id} user={user} />
             );
         });
     }
-    // if (loadingUsersError) {
-    //     return (
-    //         <div>
-    //             <div className="fixed inset-0  bg-opacity-75"></div>
-    //             <div className="fixed inset-40">
-    //                 <div className="flex  items-center justify-center h-full bg-red-200 ">
-    //                     {loadingUsersError.message}
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     );
-    // }
-
+  
 
 
 
