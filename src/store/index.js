@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { usersReducer } from "./slices/usersSlice";
+import { albumsReducer } from "./slices/albumsSlice";
 
 const store = configureStore({
     reducer: {
         users: usersReducer,
+        albums: albumsReducer,
     },
 });
 
@@ -12,5 +14,6 @@ const store = configureStore({
 export * from './thunks/fetchUsers'
 export * from './thunks/addUser'
 export * from './thunks/deleteUser'
+export * from './thunks/createAlbum'
 
 export { store };

@@ -8,15 +8,21 @@ const ExpandPanel = ({ header, children }) => {
     return (
         <div>
             <div className=" border rounded-t-md">
-                <div className="flex p-2 justify-between items-center cursor-pointer">
+                <div className="flex p-2 justify-between items-center ">
                     <div className="flex">{header}</div>
                     {togglePanel ? (
-                        <GoTriangleDown onClick={handleClick} />
+                        <GoTriangleDown
+                            onClick={handleClick}
+                            className="cursor-pointer"
+                        />
                     ) : (
-                        <GoTriangleLeft onClick={handleClick} />
+                        <GoTriangleLeft
+                            onClick={handleClick}
+                            className="cursor-pointer"
+                        />
                     )}
                 </div>
-            </div>  
+            </div>
             {togglePanel && <div className="p-2 border">{children}</div>}
         </div>
     );

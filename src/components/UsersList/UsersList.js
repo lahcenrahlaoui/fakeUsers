@@ -6,15 +6,13 @@ import { useThunk } from "../../hooks/useThunk";
 
 import LoadingData from "../LoadingData/LoadingData";
 import Button from "../Button/Button";
-import UserItem from "../UserItem/UserItem"
-
+import UserItem from "../UserItem/UserItem";
 
 const UsersList = () => {
     const [doFetchUsers, isLoadingUsers, loadingUsersError] =
         useThunk(fetchUsers);
     const [doCreatingUser, isCreatingUser, creatingUserError] =
         useThunk(addUser);
-
 
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.users);
@@ -26,26 +24,21 @@ const UsersList = () => {
     const handelAddUser = () => {
         doCreatingUser();
     };
-  
-    let content ; 
+
+    let content;
     if (isLoadingUsers) {
-        content = <LoadingData loop={6} className="h-10 w-full" />;
-    }else if(loadingUsersError){
-        content = <div>error loading users </div> 
-    }else{
+        content = <LoadingData loop={10} className="h-10 w-full" />;
+    } else if (loadingUsersError) {
+        content = <div>error loading users </div>;
+    } else {
         content = data.map((user) => {
-            return (
-                <UserItem key={user.id} user={user} />
-            );
+            return <UserItem key={user.id} user={user} />;
         });
     }
-  
-
-
 
     return (
-        <div>
-            <div>
+        <div className="flex w-full  justify-center">
+            <div className="w-1/2">
                 <div className="flex justify-between  p-4">
                     <div>
                         <b>USERS</b>
@@ -58,7 +51,6 @@ const UsersList = () => {
                     >
                         Add User
                     </Button>
-                    
                 </div>
                 {content}
             </div>
