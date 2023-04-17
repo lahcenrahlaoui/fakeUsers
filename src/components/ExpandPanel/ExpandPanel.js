@@ -1,17 +1,23 @@
-import { GoTriangleDown } from "react-icons/go";
-const ExpandPanel = ({ header, children , onClick }) => {
-    const handleClick = () =>{
-        onClick(s =>!s)
-    }
+import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
+import { useState } from "react";
+const ExpandPanel = ({ header, children }) => {
+    const [togglePanel, setTogglePanel] = useState(false);
+    const handleClick = () => {
+        setTogglePanel((state) => !state);
+    };
     return (
         <div>
             <div className=" border rounded-t-md">
                 <div className="flex p-2 justify-between items-center cursor-pointer">
                     <div className="flex">{header}</div>
-                    <GoTriangleDown onClick={handleClick}/>
+                    {togglePanel ? (
+                        <GoTriangleDown onClick={handleClick} />
+                    ) : (
+                        <GoTriangleLeft onClick={handleClick} />
+                    )}
                 </div>
-            </div>
-            {children}
+            </div>  
+            {togglePanel && <div className="p-2 border">{children}</div>}
         </div>
     );
 };

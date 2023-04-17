@@ -7,12 +7,12 @@ import { deleteUser } from "../../store";
 import { useThunk } from "../../hooks/useThunk";
 
 import ExpandPanel from "../ExpandPanel/ExpandPanel";
+import Button from "../Button/Button";
 
 function UserItem({ user }) {
     const [doDeletingUser, isDeletingUser, deletingUserError] =
         useThunk(deleteUser);
 
-    const [togglePanel, setTogglePanel] = useState(false);
 
     const handleDeleteUser = () => {
         doDeletingUser(user);
@@ -32,8 +32,13 @@ function UserItem({ user }) {
     );
     return (
         <div className="mb-2">
-            <ExpandPanel header={content} onClick={setTogglePanel}>
-                {togglePanel && <div className="p-2 border">conmterrnt</div>}
+            <ExpandPanel header={content} >
+              <div className="flex justify-between">
+                 {`Aalbums by ${user.name.split(" ")[0]}`}
+                <Button danger>
+                    +Album
+                </Button>
+                </div> 
             </ExpandPanel>
         </div>
     );
