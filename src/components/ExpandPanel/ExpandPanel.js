@@ -5,15 +5,13 @@ const ExpandPanel = ({ header, children, onClick, user }) => {
     const [expanded, setExpanded] = useState(false);
     const handleClick = () => {
         if(!expanded){
-            handleProp()
+            onClick(user)
+            setExpanded(true);
         }
         setTogglePanel((state) => !state);
         
     };
-    const handleProp = () =>{
-        onClick(user)
-        setExpanded(true);
-    }
+
     return (
         <div>
             <div className=" border rounded-t-md">
