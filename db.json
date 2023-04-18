@@ -1,179 +1,54 @@
 {
   "users": [
     {
-      "name": "Theresa Kling",
-      "id": 100000
+      "name": "Alton Dicki",
+      "id": 1000
     },
     {
-      "name": "Essie Bergnaum",
-      "id": 100001
+      "name": "Mrs. Nina Adams",
+      "id": 2000
     },
     {
-      "name": "Donna Roberts",
-      "id": 100002
+      "name": "Geraldine Kirlin",
+      "id": 3000
     },
     {
-      "name": "Rachel Douglas",
-      "id": 100003
+      "name": "Enrique Pacocha",
+      "id": 4000
     }
   ],
   "albums": [
     {
-      "userId": 100000,
-      "albumName": "Funk",
-      "id": 1000
+      "userId": 1000,
+      "albumName": "Soul",
+      "id": 100
     },
     {
-      "userId": 100000,
-      "albumName": "Rap",
-      "id": 2000
-    },
-    {
-      "userId": 100000,
+      "userId": 1000,
       "albumName": "Jazz",
-      "id": 2001
-    },
-    {
-      "userId": 100001,
-      "albumName": "Pop",
-      "id": 2002
+      "id": 101
     }
   ],
   "photos": [
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/sports",
+      "albumId": 100,
+      "imgUrl": "https://loremflickr.com/640/480/food?lock=5608",
       "id": 1
     },
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/people",
+      "albumId": 100,
+      "imgUrl": "https://loremflickr.com/640/480/food?lock=4599",
       "id": 2
     },
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/nature",
+      "albumId": 101,
+      "imgUrl": "https://loremflickr.com/640/480/food?lock=86188",
       "id": 3
     },
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "albumId": 101,
+      "imgUrl": "https://loremflickr.com/640/480/food?lock=7793",
       "id": 4
-    },
-    {
-      "albumId": 2000,
-      "imgUrl": "https://loremflickr.com/640/480/cats",
-      "id": 5
-    },
-    {
-      "albumId": 2000,
-      "imgUrl": "https://loremflickr.com/640/480/technics",
-      "id": 6
-    },
-    {
-      "albumId": 2000,
-      "imgUrl": "https://loremflickr.com/640/480/technics",
-      "id": 7
-    },
-    {
-      "albumId": 2000,
-      "imgUrl": "https://loremflickr.com/640/480/technics",
-      "id": 8
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
-      "id": 9
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/cats",
-      "id": 10
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/technics",
-      "id": 11
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/sports",
-      "id": 12
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
-      "id": 13
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/cats",
-      "id": 14
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/technics",
-      "id": 15
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/people",
-      "id": 16
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/people",
-      "id": 17
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/animals",
-      "id": 18
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/animals",
-      "id": 19
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/business",
-      "id": 20
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
-      "id": 21
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/food",
-      "id": 22
-    },
-    {
-      "albumId": 2001,
-      "imgUrl": "https://loremflickr.com/640/480/business",
-      "id": 23
-    },
-    {
-      "albumId": 2002,
-      "imgUrl": "https://loremflickr.com/640/480/nature",
-      "id": 24
-    },
-    {
-      "albumId": 2002,
-      "imgUrl": "https://loremflickr.com/640/480/business",
-      "id": 25
-    },
-    {
-      "albumId": 2002,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
-      "id": 26
-    },
-    {
-      "albumId": 2002,
-      "imgUrl": "https://loremflickr.com/640/480/nightlife",
-      "id": 27
     }
   ]
 }

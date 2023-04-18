@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 
@@ -17,6 +17,10 @@ const Slider = ({ list, album }) => {
         setIndex((i) => i - 1);
     };
 
+    const getinfo = (a, b) => {
+        console.log(a, " || ", b);
+    };
+
     let imageToShow = 0;
     const renderedList = list.map((photo, i) => {
         const extraIndex = (i + index) % list.length;
@@ -30,13 +34,24 @@ const Slider = ({ list, album }) => {
                         key={photo.id}
                         className="flex justify-between items-center"
                     >
-                        <img
+                        <div
+                            onClick={() =>
+                                getinfo(
+                                    list[extraIndex].id,
+                                    list[extraIndex].albumId
+                                )
+                            }
+                        >
+                            {list[extraIndex].id}||
+                            {list[extraIndex].albumId}
+                        </div>
+                        {/* <img
                             className="m-1"
                             src={list[extraIndex].imgUrl}
                             alt={photo.imgUrl}
                             width="80%"
                             height="80%"
-                        />
+                        /> */}
                     </div>
                 );
             }

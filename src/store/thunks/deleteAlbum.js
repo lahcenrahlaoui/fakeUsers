@@ -1,16 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const fetchPhotos = createAsyncThunk("photos/fetch", async (album) => {
+const deleteAlbum = createAsyncThunk("album/delete", async (album) => {
     await stop(1000);
-
-    const response = await axios.get(
-        `http://localhost:3001/photos?albumId=${album.id}`
+    const response = await axios.delete(
+        `http://localhost:3001/albums/${album.id}`
     );
 
-    return response.data;
+    return album.id;
 });
-
 // helper
 const stop = (time) => {
     return new Promise((res) => {
@@ -18,4 +16,4 @@ const stop = (time) => {
     });
 };
 
-export { fetchPhotos };
+export { deleteAlbum };

@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import { useThunk } from "../../hooks/useThunk";
 import { GoX, GoSync } from "react-icons/go";
 
-import { createPhoto, fetchPhotos } from "../../store";
+import { createPhoto, deleteAlbum, fetchPhotos } from "../../store";
 import { useSelector } from "react-redux";
 import Slider from "../Slider/Slider";
 
@@ -18,7 +18,8 @@ const AlbumItem = ({ user, album }) => {
     const [doCreatingPhoto, isCreatingPhoto, deletingPhotoError] =
         useThunk(createPhoto);
 
-    const [doDeletingAlbum, isDeletingAlbum, deletingAlbumError] = useThunk();
+    const [doDeletingAlbum, isDeletingAlbum, deletingAlbumError] =
+        useThunk(deleteAlbum);
 
     const handleCreatePhoto = () => {
         doCreatingPhoto(album);

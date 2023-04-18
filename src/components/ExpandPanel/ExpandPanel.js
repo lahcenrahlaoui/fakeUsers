@@ -4,16 +4,15 @@ const ExpandPanel = ({ header, children, onClick, data }) => {
     const [togglePanel, setTogglePanel] = useState(false);
     const [expanded, setExpanded] = useState(false);
     const handleClick = () => {
-        if(!expanded){
-            onClick(data)
+        if (!expanded) {
+            onClick(data);
             setExpanded(true);
         }
         setTogglePanel((state) => !state);
-        
     };
 
     return (
-        <div>
+        <div className="mb-2">
             <div className=" border rounded-t-md">
                 <div className="flex p-2 justify-between items-center ">
                     <div className="flex">{header}</div>
@@ -21,7 +20,6 @@ const ExpandPanel = ({ header, children, onClick, data }) => {
                         <GoTriangleDown
                             onClick={() => {
                                 handleClick();
-                             
                             }}
                             className="cursor-pointer"
                         />
