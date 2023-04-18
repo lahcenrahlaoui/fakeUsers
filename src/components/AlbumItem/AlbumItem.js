@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import ExpandPanel from "../ExpandPanel/ExpandPanel";
 import Button from "../Button/Button";
@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import Slider from "../Slider/Slider";
 
 const AlbumItem = ({ user, album }) => {
+    const [displaySlider, setDisplaySlider] = useState(false);
+
     const [doFetchPhotos, isFetchingPhotos, fetchingPhotoError] =
         useThunk(fetchPhotos);
 
@@ -45,22 +47,13 @@ const AlbumItem = ({ user, album }) => {
             </div>
         </>
     );
-    // const pics = data.map((photo) => {
-    //     return (
-    //         <React.Fragment key={photo.id}>
-    //             {album.id === photo.albumId && (
-    //                 <img
-    //                     className="m-1"
-    //                     src={photo.imgUrl}
-    //                     alt={photo.imgUrl}
-    //                     width="50"
-    //                     height="50"
-    //                 />
-    //             )}
-    //         </React.Fragment>
-    //     );
-    // });
 
+    const s = data.some((item) => {
+        return item.albumId === album.id;
+    });
+    useEffect(() => {
+        setDisplaySlider(s);
+    }, [s]);
     return (
         <ExpandPanel header={header} onClick={doFetchPhotos} data={album}>
             <div className="flex justify-between">
@@ -69,12 +62,12 @@ const AlbumItem = ({ user, album }) => {
                     +Photo
                 </Button>
             </div>
-            <div className="flex bg-red-100 overflow-hidden p-1">
-                
-                <Slider list={data} album={album} />
-               {/* {pics} */}
-                
+
+            {displaySlider && (
+                <div className="flex 0 p-2">
+                    <Slider list={data} album={album} />
                 </div>
+            )}
         </ExpandPanel>
     );
 };

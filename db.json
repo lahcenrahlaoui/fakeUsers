@@ -15,10 +15,6 @@
     {
       "name": "Rachel Douglas",
       "id": 100003
-    },
-    {
-      "name": "Daniel Will",
-      "id": 100004
     }
   ],
   "albums": [
@@ -28,91 +24,156 @@
       "id": 1000
     },
     {
-      "userId": 100001,
-      "albumName": "classic",
-      "id": 1001
-    },
-    {
-      "userId": 100002,
-      "albumName": "metal",
-      "id": 1002
-    },
-    {
-      "userId": 100003,
-      "albumName": "nomusic",
-      "id": 1003
+      "userId": 100000,
+      "albumName": "Rap",
+      "id": 2000
     },
     {
       "userId": 100000,
-      "albumName": "Rap",
-      "id": 1004
+      "albumName": "Jazz",
+      "id": 2001
     },
     {
       "userId": 100001,
-      "albumName": "Reggae",
-      "id": 1005
-    },
-    {
-      "userId": 100001,
-      "albumName": "Stage And Screen",
-      "id": 1006
-    },
-    {
-      "userId": 100001,
-      "albumName": "Rap",
-      "id": 1007
+      "albumName": "Pop",
+      "id": 2002
     }
   ],
   "photos": [
     {
       "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/abstract",
+      "imgUrl": "https://loremflickr.com/640/480/sports",
       "id": 1
     },
     {
-      "albumId": 1004,
-      "imgUrl": "https://loremflickr.com/640/480/fashion",
+      "albumId": 1000,
+      "imgUrl": "https://loremflickr.com/640/480/people",
       "id": 2
     },
     {
       "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/animals",
+      "imgUrl": "https://loremflickr.com/640/480/nature",
       "id": 3
-    },
-    {
-      "albumId": 1004,
-      "imgUrl": "https://loremflickr.com/640/480/city",
-      "id": 4
-    },
-    {
-      "albumId": 1004,
-      "imgUrl": "https://loremflickr.com/640/480/people",
-      "id": 5
-    },
-    {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/animals",
-      "id": 6
-    },
-    {
-      "albumId": 1004,
-      "imgUrl": "https://loremflickr.com/640/480/abstract",
-      "id": 7
     },
     {
       "albumId": 1000,
       "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "id": 4
+    },
+    {
+      "albumId": 2000,
+      "imgUrl": "https://loremflickr.com/640/480/cats",
+      "id": 5
+    },
+    {
+      "albumId": 2000,
+      "imgUrl": "https://loremflickr.com/640/480/technics",
+      "id": 6
+    },
+    {
+      "albumId": 2000,
+      "imgUrl": "https://loremflickr.com/640/480/technics",
+      "id": 7
+    },
+    {
+      "albumId": 2000,
+      "imgUrl": "https://loremflickr.com/640/480/technics",
       "id": 8
     },
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/sports",
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/nightlife",
       "id": 9
     },
     {
-      "albumId": 1000,
-      "imgUrl": "https://loremflickr.com/640/480/transport",
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/cats",
       "id": 10
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/technics",
+      "id": 11
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/sports",
+      "id": 12
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "id": 13
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/cats",
+      "id": 14
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/technics",
+      "id": 15
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/people",
+      "id": 16
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/people",
+      "id": 17
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/animals",
+      "id": 18
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/animals",
+      "id": 19
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/business",
+      "id": 20
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "id": 21
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/food",
+      "id": 22
+    },
+    {
+      "albumId": 2001,
+      "imgUrl": "https://loremflickr.com/640/480/business",
+      "id": 23
+    },
+    {
+      "albumId": 2002,
+      "imgUrl": "https://loremflickr.com/640/480/nature",
+      "id": 24
+    },
+    {
+      "albumId": 2002,
+      "imgUrl": "https://loremflickr.com/640/480/business",
+      "id": 25
+    },
+    {
+      "albumId": 2002,
+      "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "id": 26
+    },
+    {
+      "albumId": 2002,
+      "imgUrl": "https://loremflickr.com/640/480/nightlife",
+      "id": 27
     }
   ]
 }

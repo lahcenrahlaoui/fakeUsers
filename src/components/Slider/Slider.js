@@ -1,58 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 
 const Slider = ({ list, album }) => {
-    // const list = ["a" , "b" , "c" , "d" , "e" , "f" , "i"]
-
     const [index, setIndex] = useState(0);
 
-    const handleRight = () => {
-        setIndex((i) => i - 1);
-    };
+    const displaySlider = list.some((item) => {
+        return item.albumId === album.id;
+    });
 
-    const handleLeft = () => {
+    const handleRight = () => {
         setIndex((i) => i + 1);
     };
 
-    const renderedList = list.map((photo, i) => {
-            const extraIndex = (i + index) % list.length;
-            console.log(extraIndex)
-            return (
+    const handleLeft = () => {
+        setIndex((i) => i - 1);
+    };
 
-                <div
-                    key={photo.id}
-                    className="flex justify-between items-center"
-                >
-                    {album.id === photo.albumId && (
+    let imageToShow = 0;
+    const renderedList = list.map((photo, i) => {
+        const extraIndex = (i + index) % list.length;
+        if (album.id === photo.albumId) {
+            if (imageToShow > 2) {
+                return;
+            } else {
+                imageToShow++;
+                return (
+                    <div
+                        key={photo.id}
+                        className="flex justify-between items-center"
+                    >
                         <img
                             className="m-1"
                             src={list[extraIndex].imgUrl}
                             alt={photo.imgUrl}
-                            width="250"
-                            height="250"
+                            width="80%"
+                            height="80%"
                         />
-                    )}
-                </div>
-            );
+                    </div>
+                );
+            }
+        } else {
+            return;
+        }
     });
 
     return (
-        <div className="flex justify-between bg-blue-200 w-full">
-            <div className="flex justify-center items-center h-full ">
-                <Button primary onClick={handleRight}>
-                    <GoChevronLeft />
-                </Button>
-            </div>
-            {/* <div className="flex justify-between items-center"> */}
-            {renderedList}
-            {/* </div> */}
-            <div className="flex justify-center items-center h-full ">
-                <Button primary onClick={handleLeft}>
-                    <GoChevronRight />
-                </Button>
-            </div>
-        </div>
+        <>
+            {displaySlider && (
+                <div className="flex justify-between border p-3 w-full">
+                    <div className="flex justify-center items-center h-full ">
+                        <Button primary onClick={handleLeft}>
+                            <GoChevronLeft />
+                        </Button>
+                    </div>
+                    {renderedList}
+                    <div className="flex justify-center items-center h-full ">
+                        <Button primary onClick={handleRight}>
+                            <GoChevronRight />
+                        </Button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 
