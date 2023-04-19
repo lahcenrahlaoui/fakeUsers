@@ -15,40 +15,33 @@
     {
       "name": "Enrique Pacocha",
       "id": 4000
+    },
+    {
+      "name": "Ben Deckow DDS",
+      "id": 4001
     }
   ],
   "albums": [
     {
-      "userId": 1000,
-      "albumName": "Soul",
-      "id": 100
-    },
-    {
-      "userId": 1000,
-      "albumName": "Jazz",
-      "id": 101
-    }
-  ],
-  "photos": [
-    {
-      "albumId": 100,
-      "imgUrl": "https://loremflickr.com/640/480/food?lock=5608",
+      "userId": 2000,
+      "title": "Ocie",
       "id": 1
     },
     {
-      "albumId": 100,
-      "imgUrl": "https://loremflickr.com/640/480/food?lock=4599",
+      "userId": 1000,
+      "title": "Burdette",
       "id": 2
     },
     {
-      "albumId": 101,
-      "imgUrl": "https://loremflickr.com/640/480/food?lock=86188",
+      "userId": 1000,
+      "title": "Felipa",
       "id": 3
     },
     {
-      "albumId": 101,
-      "imgUrl": "https://loremflickr.com/640/480/food?lock=7793",
+      "userId": 1000,
+      "title": "Lorna",
       "id": 4
     }
-  ]
+  ],
+  "photos": []
 }

@@ -1,7 +1,6 @@
 import { GoX, GoSync } from "react-icons/go";
 
-import { useSelector } from "react-redux";
-import { deleteUser, createAlbum, fetchAlbums } from "../../store";
+import { deleteUser } from "../../store";
 
 import { useThunk } from "../../hooks/useThunk";
 
@@ -10,12 +9,6 @@ import Button from "../Button/Button";
 import AlbumsList from "../AlbumsList/AlbumsList";
 
 function UserItem({ user }) {
-    const [doFetchAlbums, isFetchingAlbums, fetchingAlbumError] =
-        useThunk(fetchAlbums);
-
-    const [doCreatingAlbum, isCreatingAlbum, deletingAlbumError] =
-        useThunk(createAlbum);
-
     const [doDeletingUser, isDeletingUser, deletingUserError] =
         useThunk(deleteUser);
 
@@ -39,19 +32,10 @@ function UserItem({ user }) {
             {user.name}
         </>
     );
-    const handleAddAlbum = () => {
-        doCreatingAlbum(user.id);
-    };
+
     return (
         <div className="mb-2">
-            <ExpandPanel header={content} onClick={doFetchAlbums} data={user}>
-                <div className="flex justify-between">
-                    {`Aalbums by ${user.name.split(" ")[0]}`}
-                    <Button danger onClick={handleAddAlbum}>
-                        +Album
-                    </Button>
-                </div>
-
+            <ExpandPanel header={content}>
                 <AlbumsList user={user} />
             </ExpandPanel>
         </div>

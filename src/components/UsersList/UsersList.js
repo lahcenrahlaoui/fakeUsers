@@ -4,7 +4,7 @@ import { fetchUsers, addUser, deleteUser } from "../../store";
 import { useSelector } from "react-redux";
 import { useThunk } from "../../hooks/useThunk";
 
-import Slider from "../Slider/Slider";
+// import Slider from "../Slider/Slider";
 
 import LoadingData from "../LoadingData/LoadingData";
 import Button from "../Button/Button";
