@@ -2,11 +2,22 @@ import ExpandPanel from "../ExpandPanel/ExpandPanel";
 
 import { GoX, GoSync } from "react-icons/go";
 
-import { useDeleteAlbumMutation, useFetchPhotosQuery } from "../../store";
+import {
+    useAddPhotoMutation,
+    useDeleteAlbumMutation,
+    useFetchPhotosQuery,
+} from "../../store";
+import Button from "../Button/Button";
 
 const PhotosList = ({ album }) => {
     const { data, error, isFetching } = useFetchPhotosQuery(album);
 
+    const [addPhoto, results] = useAddPhotoMutation();
+
+    const handleAddPhoto = () => {
+        addPhoto(album);
+        console.log(results);
+    };
     let content;
 
     console.log(data);
@@ -17,10 +28,29 @@ const PhotosList = ({ album }) => {
         content = <div>error</div>;
     } else {
         content = data.map((photo) => {
-            return <img key={photo.id} src={photo.src} />;
+            return (
+                <img
+                    width="50px"
+                    height="50px"
+                    key={photo.id}
+                    src={photo.src}
+                />
+            );
         });
     }
-    return <div>{content}</div>;
+    return (
+        <div className="">
+            <div className="flex justify-between mb-2">
+                <div> {album.title}</div>
+                <Button danger onClick={handleAddPhoto}>
+                    +Photo
+                </Button>
+            </div>
+            <div className="flex justify-around">
+                {content}
+            </div>
+        </div>
+    );
 };
 
 export default PhotosList;

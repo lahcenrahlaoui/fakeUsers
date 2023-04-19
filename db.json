@@ -31,8 +31,43 @@
   "photos": [
     {
       "albumId": 1,
-      "src": "http://placekitten.com/200/300",
-      "id": 1213123
+      "src": "https://loremflickr.com/640/480/food?lock=57105",
+      "id": 1
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=37124",
+      "id": 2
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=49548",
+      "id": 3
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=44675",
+      "id": 4
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=54225",
+      "id": 5
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=12827",
+      "id": 6
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=63054",
+      "id": 7
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/480/food?lock=46579",
+      "id": 8
     }
   ]
 }
