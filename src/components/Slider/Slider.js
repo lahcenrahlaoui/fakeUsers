@@ -1,84 +1,110 @@
-import React, { useState } from "react";
-import Button from "../Button/Button";
-import { GoChevronLeft, GoChevronRight } from "react-icons/go";
+// import { useEffect, useRef } from "react";
 
-const Slider = ({ list, album }) => {
-    const [index, setIndex] = useState(0);
+// // import Flickity from "flickity";
+// export default function Slider({ content }) {
+//     useEffect(() => {
+//         initFlickity();
+//     }, []);
 
-    const displaySlider = list.some((item) => {
-        return item.albumId === album.id;
+//     const carousel = useRef(null);
+
+//     async function initFlickity() {
+//         if (typeof window !== "undefined" && carousel.current) {
+//             const Flickity = (await import("flickity")).default;
+//             const x = (await import("flickity/css/flickity.css")).default;
+//             // console.log(Flickity)
+
+//             new Flickity(carousel.current, {
+//                 // lazyLoad: true,
+//                 // wrapAround: true,
+
+//                 draggable: true,
+
+//                 freeScroll: true,
+//                 autoPlay: 1500,
+//                 contain: true,
+//                 // disable previous & next buttons and dots
+//                 // prevNextButtons: false,
+//                 pageDots: false,
+
+//                 // groupCells: 2,
+//             });
+//         }
+//     }
+
+//     const images = content.map((image, idx) => {
+//         return (
+//             <div
+//                 className="justify-center items-center w-full h-min	 p-4    "
+//                 key={idx}
+//             >
+//                 <div className=" w-full h-full  justify-center items-center ">
+//                     <img src={image} />
+//                 </div>
+//             </div>
+//         );
+//     });
+
+//     return (
+//         <div ref={carousel} className=" w-full h-min	 p-2 m-2     ">
+//             {images}
+//         </div>
+//     );
+// }
+
+/****************************************************
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+import classNames from "classnames";
+import Flickity from "react-flickity-component";
+
+function Slider({ content, className }) {
+    const flickityOptions = {
+        initialIndex: Math.floor(Math.random() * content.length),
+        lazyLoad: 2,
+        wrapAround: true,
+
+        draggable: content.length > 2 ? true : false,
+
+        freeScroll: content.length > 2 ? true : false,
+        autoPlay: content.length > 2 ? 3000 : false,
+        // contain: true,
+        // disable previous & next buttons and dots
+        prevNextButtons: false,
+        pageDots: false,
+
+        groupCells: true,
+        imagesLoaded: true
+    };
+
+    const images = content.map((image, idx) => {
+        return (
+            <div className="  w-1/2 mr-2 bg-red-500 " key={idx}>
+                <img className="carousel-cell-image" src={image} />
+            </div>
+        );
     });
-
-    const handleRight = () => {
-        setIndex((i) => i + 1);
-    };
-
-    const handleLeft = () => {
-        setIndex((i) => i - 1);
-    };
-
-    const getinfo = (a, b) => {
-        console.log(a, " || ", b);
-    };
-
-    let imageToShow = 0;
-    const renderedList = list.map((photo, i) => {
-        const extraIndex = (i + index) % list.length;
-        if (album.id === photo.albumId) {
-            if (imageToShow > 2) {
-                return;
-            } else {
-                imageToShow++;
-                return (
-                    <div
-                        key={photo.id}
-                        className="flex justify-between items-center"
-                    >
-                        <div
-                            onClick={() =>
-                                getinfo(
-                                    list[extraIndex].id,
-                                    list[extraIndex].albumId
-                                )
-                            }
-                        >
-                            {list[extraIndex].id}||
-                            {list[extraIndex].albumId}
-                        </div>
-                        {/* <img
-                            className="m-1"
-                            src={list[extraIndex].imgUrl}
-                            alt={photo.imgUrl}
-                            width="80%"
-                            height="80%"
-                        /> */}
-                    </div>
-                );
-            }
-        } else {
-            return;
-        }
+    const classes = classNames(" carousel outline-0 !bg-transparent", {
+        className,
     });
-
     return (
-        <>
-            {displaySlider && (
-                <div className="flex justify-between border p-3 w-full">
-                    <div className="flex justify-center items-center h-full ">
-                        <Button primary onClick={handleLeft}>
-                            <GoChevronLeft />
-                        </Button>
-                    </div>
-                    {renderedList}
-                    <div className="flex justify-center items-center h-full ">
-                        <Button primary onClick={handleRight}>
-                            <GoChevronRight />
-                        </Button>
-                    </div>
-                </div>
-            )}
-        </>
+        <Flickity
+            className={classes}
+            elementType={"div"}
+            options={flickityOptions}
+            disableImagesLoaded={false}
+            reloadOnUpdate
+            static
+        >
+            {images}
+        </Flickity>
     );
-};
+}
 
 export default Slider;
