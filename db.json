@@ -9,63 +9,6 @@
       "id": 3000
     }
   ],
-  "albums": [
-    {
-      "userId": 1000,
-      "title": "Luigi",
-      "id": 1
-    }
-  ],
-  "photos": [
-    {
-      "albumId": 2,
-      "src": "https://loremflickr.com/640/480/food?lock=69128",
-      "id": 18
-    },
-    {
-      "albumId": 2,
-      "src": "https://loremflickr.com/640/480/food?lock=40426",
-      "id": 19
-    },
-    {
-      "albumId": 2,
-      "src": "https://loremflickr.com/640/480/food?lock=53762",
-      "id": 20
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=49550",
-      "id": 21
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=96405",
-      "id": 22
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=98350",
-      "id": 23
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=15570",
-      "id": 24
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=17830",
-      "id": 25
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=18165",
-      "id": 26
-    },
-    {
-      "albumId": 1,
-      "src": "https://loremflickr.com/640/480/food?lock=99486",
-      "id": 27
-    }
-  ]
+  "albums": [ ],
+  "photos": [  ]
 }

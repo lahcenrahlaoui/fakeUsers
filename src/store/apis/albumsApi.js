@@ -28,7 +28,7 @@ const albumsApi = createApi({
                         url: "/albums",
                         body: {
                             userId: user.id,
-                            title: faker.name.firstName(),
+                            title: faker.vehicle.bicycle(),
                         },
                         method: "POST",
                     };

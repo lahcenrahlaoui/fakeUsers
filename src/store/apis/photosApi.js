@@ -31,11 +31,12 @@ const photosApi = createApi({
                 },
 
                 query: (album) => {
+                     
                     return {
                         url: "/photos",
                         body: {
                             albumId: album.id,
-                            src: faker.image.food(640, 480, true),
+                            src: faker.image.transport(640, 640, true),
                         },
                         method: "POST",
                     };
