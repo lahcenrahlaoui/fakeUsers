@@ -5,7 +5,7 @@ import { deleteUser } from "../../store";
 import { useThunk } from "../../hooks/useThunk";
 
 import ExpandPanel from "../ExpandPanel/ExpandPanel";
-import Button from "../Button/Button";
+
 import AlbumsList from "../AlbumsList/AlbumsList";
 
 function UserItem({ user }) {
@@ -15,6 +15,8 @@ function UserItem({ user }) {
     const handleDeleteUser = () => {
         doDeletingUser(user);
     };
+
+
 
     const content = (
         <>
@@ -34,7 +36,7 @@ function UserItem({ user }) {
     );
 
     return (
-        <div className="mb-2">
+        <div className="mb-2 ">
             <ExpandPanel header={content}>
                 <AlbumsList user={user} />
             </ExpandPanel>

@@ -23,25 +23,16 @@
   ],
   "albums": [
     {
-      "userId": 2000,
-      "title": "Ocie",
+      "userId": 1000,
+      "title": "Bernice",
       "id": 1
-    },
-    {
-      "userId": 1000,
-      "title": "Burdette",
-      "id": 2
-    },
-    {
-      "userId": 1000,
-      "title": "Felipa",
-      "id": 3
-    },
-    {
-      "userId": 1000,
-      "title": "Lorna",
-      "id": 4
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 1,
+      "src": "http://placekitten.com/200/300",
+      "id": 1213123
+    }
+  ]
 }

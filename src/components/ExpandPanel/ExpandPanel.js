@@ -1,6 +1,7 @@
 import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
 import { useState } from "react";
-const ExpandPanel = ({ header, children, onClick, data }) => {
+import classNames from "classnames";
+const ExpandPanel = ({ header, children, onClick, data, className }) => {
     const [togglePanel, setTogglePanel] = useState(false);
 
     const handleClick = () => {
@@ -9,7 +10,7 @@ const ExpandPanel = ({ header, children, onClick, data }) => {
 
     return (
         <div className="mb-2">
-            <div className=" border rounded-t-md">
+            <div className="border rounded-t-md">
                 <div className="flex p-2 justify-between items-center ">
                     <div className="flex">{header}</div>
                     <div onClick={handleClick} className="cursor-pointer">
