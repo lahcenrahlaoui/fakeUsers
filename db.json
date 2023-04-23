@@ -1,14 +1,70 @@
 {
   "users": [
     {
-      "name": "Alton Dicki",
-      "id": 1000
+      "name": "Javier Leannon",
+      "id": 1
     },
     {
-      "name": "Geraldine Kirlin",
-      "id": 3000
+      "name": "Cody Bode",
+      "id": 2
+    },
+    {
+      "name": "Sergio Quitzon",
+      "id": 3
     }
   ],
-  "albums": [ ],
-  "photos": [  ]
+  "albums": [
+    {
+      "userId": 1,
+      "title": "Tandem Bicycle",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Dual-Sport Bicycle",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "title": "Mountain Bicycle",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "title": "Folding Bicycle",
+      "id": 4
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/640/transport?lock=67985",
+      "id": 1
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/640/transport?lock=15926",
+      "id": 2
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/640/transport?lock=61521",
+      "id": 3
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/640/transport?lock=67419",
+      "id": 4
+    },
+    {
+      "albumId": 1,
+      "src": "https://loremflickr.com/640/640/transport?lock=25798",
+      "id": 5
+    },
+    {
+      "albumId": 3,
+      "src": "https://loremflickr.com/640/640/transport?lock=84931",
+      "id": 6
+    }
+  ]
 }

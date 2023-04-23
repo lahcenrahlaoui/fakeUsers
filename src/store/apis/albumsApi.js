@@ -11,7 +11,8 @@ const stop = (time) => {
 const albumsApi = createApi({
     reducerPath: "albums",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:3001",
+        baseUrl: "https://my-json-server.typicode.com/lahcenrahlaoui/fakeUsersDB",
+        // baseUrl: "http://localhost:3001",
         fetchFn: async (...args) => {
             await stop(1000);
             return fetch(...args);
